@@ -1,3 +1,166 @@
 body {
-    background-color: "green"
+    background-color: chocolate;
+    margin: 0%;
 }
+
+#header {
+    background-color: antiquewhite;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10% 0 8% 0;
+}
+
+#header #date {
+    word-spacing: 0.2vw;
+    letter-spacing: 0.3vw;
+    font-size: calc(2vw + 4px);
+}
+
+#header #time {
+    letter-spacing: 0.4vw;
+    font-size: calc(6vw + 16px);
+}
+
+@media screen and (max-width: 699.99px) {
+    .content {
+        background-color: chocolate;
+        display: flex;
+        padding: 3%;
+        font-family:Arial, Helvetica, sans-serif;
+        flex-direction: column;
+    }
+    .schedule-box {
+        display: flex;
+        flex-direction: column; 
+    }
+    .schedule-header {
+        border: 3px solid black;
+        background-color: burlywood;
+        border-radius: 5px;
+        padding: 9px;
+        margin: 1% 0;
+        display: flex;
+        align-items: center;
+    }
+}
+@media screen and (min-width: 700px) {
+    .content {
+        background-color: chocolate;
+        display: flex;
+        padding: 3%;
+        font-family:Arial, Helvetica, sans-serif;
+        flex-direction: row;
+        justify-content: center;
+        flex-flow: wrap;
+    }
+    .schedule-box {
+        margin: 1%;
+        display: flex;
+        flex-direction: column; 
+        flex: 0 1 30%;
+    }
+    .schedule-header {
+        border: 3px solid black;
+        background-color: burlywood;
+        border-radius: 5px;
+        padding: 9px;
+        margin: 1% 0;
+        display: flex;
+        flex: 0;
+        align-items: center;
+    }
+}
+
+    .schedule-owner {
+        flex: 1 1 90%;
+        justify-self: left;
+        min-width: 0;
+        overflow: hidden;
+        font-size: calc(1vw + 24px);
+        padding-left: 3px; 
+    }
+    /* .schedule-owner-status { // retired feature for in-class/vacant
+        flex: 1 1 40%;
+        text-align: center;
+        border: 1px dashed black;
+    } */
+    .schedule-subject-code-active {
+        flex: 1 1 35%;
+        text-align: center;
+    }
+    .schedule-dropdown-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1 1 25%;
+        align-self: stretch;
+        font-size: 36px;
+        padding: 0;
+        transition: transform 0.4s ease;
+    }
+
+    .schedule-dropdown {
+        display: none;
+        flex-direction: column;
+        justify-items: center;
+        align-items: stretch;
+        margin-bottom: 1%;
+        border: 3px solid black;
+        border-radius: 5px;
+        background-color:antiquewhite;
+        flex: 0;
+    }
+    .dropdown-separator {
+        display: flex;
+        align-items: center;
+        justify-items: center;
+    }
+    .dropdown-line-one {
+        flex: 1 1 10%;
+        padding: 0.5px;
+        background-color: black;
+    }
+    .dropdown-line-day {
+        flex: 1 1 20%;
+        text-align: center;
+        font-size: 12px;
+        letter-spacing: 1px;
+        font-weight: bolder;
+    }
+    .dropdown-line-two {
+        flex: 1 1 70%;
+        padding: 0.5px;
+        background-color: black;
+    }
+    .schedule {
+        display: flex;
+        align-items: center;
+        padding: 2px 0;
+    }
+    .schedule-time {
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        flex: 0 0 100px;
+        font-weight: bolder;
+        word-spacing: 2px;
+        letter-spacing: 1px;
+    }
+    .schedule-separator {
+        height: 25px;
+        padding: 2px;
+        margin: 5px;
+        background-color: black;
+        border-radius: 5px;
+    }
+    .schedule-subject {
+        display: flex;
+        flex-direction: column;
+    }
+    .schedule-subject-code {
+        font-weight: bold;
+        letter-spacing: 0.5px;
+    }
