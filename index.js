@@ -224,7 +224,6 @@ function createMobileInterface(owner) {
     scheduleDropdown.classList.add("schedule-dropdown");
     scheduleDropdown.setAttribute("id", `mobile-${owner}-dropdown`);
 
-    let i = 1;
     let day = Number(activeSchedule.scheduleDay);
     for (const schedule of ownerSchedule) {
         const scheduleTab = document.createElement("div");
@@ -260,7 +259,7 @@ scheduleSubjectName.classList.add("schedule-subject-name");
         scheduleTab.appendChild(scheduleTimeTab);
         scheduleTab.appendChild(scheduleSeparator);
         scheduleTab.appendChild(scheduleSubject);
-        if (i < ownerSchedule.length && schedule.scheduleDay != day) {
+        if (schedule.scheduleDay != day) {
             const dropdownSeparator = document.createElement("div");
             const dropdownSeparatorLine1 = document.createElement("div");
             const dropdownSeparatorDay = document.createElement("div");
@@ -294,7 +293,6 @@ scheduleSubjectName.classList.add("schedule-subject-name");
 
             scheduleDropdown.appendChild(dropdownSeparator)
         }
-        i++;
 
         scheduleDropdown.appendChild(scheduleTab);
     }
