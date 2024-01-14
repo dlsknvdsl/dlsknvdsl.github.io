@@ -1,8 +1,8 @@
 window.onload = () => {
     dateTime()
-    const createInterface = ["Kern"];
-    for (owner of createInterface) {
-        createMobileInterface(owner);
+    const userInterface = ["Kern", "Sean"];
+    for (owner of userInterface) {
+        createInterface(owner);
     }
 };
 
@@ -144,7 +144,7 @@ function scheduleLookAhead(owner, subjectsNum, startDateTime) {
         };
 
         if (!disableCutoff) {
-            const cutoffSequence = iterationOutput.findIndex(s => (s.endHour > date.getHours() || (s.endHour == date.getHours() && s.endMinutes > date.getMinutes())))
+            const cutoffSequence = iterationOutput.findIndex(s => (s.endHour > date.getHours() || (s.endHour == date.getHours() && s.endMinute > date.getMinutes())))
             iterationOutput.splice(0, cutoffSequence)
         };
         
@@ -166,17 +166,25 @@ function scheduleLookAhead(owner, subjectsNum, startDateTime) {
 console.log(scheduleLookAhead("Kern", 5))
 
 // html dom functions
-function dropdownButton(element, id) {
-    element.style.transform = element.style.transform ? "":"rotate(135deg)";
-    
-    const referenceStyle = document.getElementById(id).style;
-    document.getElementById(id).style.display = referenceStyle.display=="flex" ? "none":"flex";
-}
+function toggleButton(element, ids, count) {
+    const colors = ["#fc0303", "#f8fc03", "#0bfc03"];
+    const idsArray = `[${ids.map(v => `"${v}"`)}]`;
 
-function createMobileInterface(owner) { 
+    let increment = count + 1;
+    if (increment > 2) increment = 0;
+
+    element.children.item(0).style.backgroundColor = colors[increment];
+    element.setAttribute("onclick", `toggleButton(this, ${idsArray}, ${increment})`)
+
+    if (increment > 0) {
+        const activeId = ids.splice(increment - 1)[0];
+        document.getElementById(activeId).style.display = "block";
+    };
+    ids.forEach(id => document.getElementById(id).style.display = "none");
+};
+
+function createInterface(owner) { 
     const content = document.getElementsByClassName("content").item(0);
-    
-
     const ownerSchedule = scheduleLookAhead(owner, 5);
 
     //schedule box
@@ -192,10 +200,11 @@ function createMobileInterface(owner) {
     const scheduleOwner = document.createElement("div");
     // const scheduleStatus = document.createElement("div");
     const scheduleCode = document.createElement("div");
-    const scheduleDropdownButton = document.createElement("div");
+    const scheduleToggle = document.createElement("div");
+    const scheduleToggleButton = document.createElement("div");
 
     scheduleBox.classList.add("schedule-box");
-    scheduleBox.setAttribute("id", `mobile-${owner}`);
+    scheduleBox.setAttribute("id", `${owner}`);
 
     scheduleHeader.classList.add("schedule-header");
 
@@ -208,24 +217,35 @@ function createMobileInterface(owner) {
     scheduleCode.classList.add("schedule-subject-code-active");
     scheduleCode.textContent = activeSubjectCode;
     
-    scheduleDropdownButton.classList.add("schedule-dropdown-button");
-    scheduleDropdownButton.setAttribute("onclick", `dropdownButton(this, 'mobile-${owner}-dropdown')`)
-    scheduleDropdownButton.textContent = "+";
+    scheduleToggle.classList.add("schedule-toggle");
+    scheduleToggle.setAttribute("onclick", `toggleButton(this, ["${owner}-upcoming", "${owner}-overview"], 0)`)
 
+    scheduleToggleButton.classList.add("schedule-toggle-button");
+    scheduleToggle.appendChild(scheduleToggleButton)
     
     scheduleHeader.appendChild(scheduleOwner)
     // scheduleBox.appendChild(scheduleStatus)
     scheduleHeader.appendChild(scheduleCode)
-    scheduleHeader.appendChild(scheduleDropdownButton)
+    scheduleHeader.appendChild(scheduleToggle)
     scheduleBox.appendChild(scheduleHeader)
-    //schedule dropdown
+    //schedule upcoming
 
-    const scheduleDropdown = document.createElement("div");
-    scheduleDropdown.classList.add("schedule-dropdown");
-    scheduleDropdown.setAttribute("id", `mobile-${owner}-dropdown`);
+    const scheduleUpcoming = createUpcomingInterface(owner, activeSchedule, ownerSchedule)
+
+    const scheduleOverview = createOverviewInterface(owner);
+
+    scheduleBox.appendChild(scheduleUpcoming);
+    scheduleBox.appendChild(scheduleOverview)
+    content.appendChild(scheduleBox)
+}
+
+function createUpcomingInterface(owner, activeSchedule, ownerSchedule) {
+    const scheduleUpcoming = document.createElement("div");
+    scheduleUpcoming.classList.add("schedule-upcoming");
+    scheduleUpcoming.setAttribute("id", `${owner}-upcoming`);
 
     let day = Number(activeSchedule.scheduleDay);
-    for (const schedule of ownerSchedule) {
+    for  (const schedule of ownerSchedule) {
         const scheduleTab = document.createElement("div");
         const scheduleTimeTab = document.createElement("div");
         const scheduleTimeTabStart = document.createElement("div");
@@ -246,11 +266,11 @@ function createMobileInterface(owner) {
 
         scheduleSeparator.classList.add("schedule-separator");
 
-                scheduleSubjectCode.textContent = schedule.subjectCode;
-scheduleSubjectCode.classList.add("schedule-subject-code");
+        scheduleSubjectCode.textContent = schedule.subjectCode;
+        scheduleSubjectCode.classList.add("schedule-subject-code");
 
-                scheduleSubjectName.textContent = schedule.subjectTitle;
-scheduleSubjectName.classList.add("schedule-subject-name");
+        scheduleSubjectName.textContent = schedule.subjectTitle;
+        scheduleSubjectName.classList.add("schedule-subject-name");
 
         scheduleSubject.classList.add("schedule-subject");
         scheduleSubject.appendChild(scheduleSubjectCode);
@@ -260,45 +280,215 @@ scheduleSubjectName.classList.add("schedule-subject-name");
         scheduleTab.appendChild(scheduleSeparator);
         scheduleTab.appendChild(scheduleSubject);
         if (schedule.scheduleDay != day) {
-            const dropdownSeparator = document.createElement("div");
-            const dropdownSeparatorLine1 = document.createElement("div");
-            const dropdownSeparatorDay = document.createElement("div");
-            const dropdownSeparatorLine2 = document.createElement("div");
+            const upcomingSeparator = document.createElement("div");
+            const upcomingSeparatorLine1 = document.createElement("div");
+            const upcomingSeparatorDay = document.createElement("div");
+            const upcomingSeparatorLine2 = document.createElement("div");
 
-            dropdownSeparator.classList.add("dropdown-separator");
+            upcomingSeparator.classList.add("upcoming-separator");
 
-            dropdownSeparatorLine1.classList.add("dropdown-line-one");
+            upcomingSeparatorLine1.classList.add("upcoming-line-one");
 
-            dropdownSeparatorDay.classList.add("dropdown-line-day");
-            let dropdownSeparatorDayName;
+            upcomingSeparatorDay.classList.add("upcoming-line-day");
+            let upcomingSeparatorDayName;
 
             switch (schedule.scheduleDay) {
-                case 0: dropdownSeparatorDayName = "Sunday"; break;
-                case 1: dropdownSeparatorDayName = "Monday"; break;
-                case 2: dropdownSeparatorDayName = "Tuesday"; break;
-                case 3: dropdownSeparatorDayName = "Wednesday"; break;
-                case 4: dropdownSeparatorDayName = "Thursday"; break;
-                case 5: dropdownSeparatorDayName = "Friday"; break;
-                case 6: dropdownSeparatorDayName = "Saturday"; break;
+                case 0: upcomingSeparatorDayName = "Sunday"; break;
+                case 1: upcomingSeparatorDayName = "Monday"; break;
+                case 2: upcomingSeparatorDayName = "Tuesday"; break;
+                case 3: upcomingSeparatorDayName = "Wednesday"; break;
+                case 4: upcomingSeparatorDayName = "Thursday"; break;
+                case 5: upcomingSeparatorDayName = "Friday"; break;
+                case 6: upcomingSeparatorDayName = "Saturday"; break;
             }
-            dropdownSeparatorDay.textContent = dropdownSeparatorDayName;
+            upcomingSeparatorDay.textContent = upcomingSeparatorDayName;
             day++;
             if (day == 7) {day = 0};
 
-            dropdownSeparatorLine2.classList.add("dropdown-line-two");
+            upcomingSeparatorLine2.classList.add("upcoming-line-two");
 
-            dropdownSeparator.appendChild(dropdownSeparatorLine1)
-            dropdownSeparator.appendChild(dropdownSeparatorDay)
-            dropdownSeparator.appendChild(dropdownSeparatorLine2)
+            upcomingSeparator.appendChild(upcomingSeparatorLine1)
+            upcomingSeparator.appendChild(upcomingSeparatorDay)
+            upcomingSeparator.appendChild(upcomingSeparatorLine2)
 
-            scheduleDropdown.appendChild(dropdownSeparator)
+            scheduleUpcoming.appendChild(upcomingSeparator)
         }
 
-        scheduleDropdown.appendChild(scheduleTab);
+        scheduleUpcoming.appendChild(scheduleTab);
     }
 
-    scheduleBox.appendChild(scheduleDropdown);
-    content.appendChild(scheduleBox)
+    return scheduleUpcoming;
+}
+
+function createOverviewInterface(owner) {
+    const ownerSchedule = scheds[owner]; // no need to check for incompatible owner since called from function that calls getSchedules()
+
+
+
+    const overview = document.createElement("div");
+    overview.classList.add("overview");
+    overview.setAttribute("id", `${owner}-overview`);
+
+    const overviewSchedule = document.createElement("div");
+    overviewSchedule.classList.add("overview-schedule");
+
+
+
+    const overviewScheduleHeaders = document.createElement("div");
+    overviewScheduleHeaders.classList.add("overview-schedule-headers")
+    
+    const overviewScheduleHeadersContent = ["", "M", "T", "W", "Th", "F", "S"]
+    for (const content of overviewScheduleHeadersContent) {
+        const overviewHeaderCell = document.createElement("div");
+        overviewHeaderCell.textContent = content;
+        overviewScheduleHeaders.appendChild(overviewHeaderCell)
+    };
+    overviewSchedule.appendChild(overviewScheduleHeaders)
+
+
+
+    const overviewScheduleTimes = document.createElement("div");
+    overviewScheduleTimes.classList.add("overview-schedule-times");
+
+    const overviewScheduleTimesContent = ["7-8", "8-9", "9-10", "10-11", "11-12", "12-1", "1-2", "2-3", "3-4", "4-5", "5-6", "6-7"]
+    for (const time of overviewScheduleTimesContent) {
+        const overviewScheduleTimeCell = document.createElement("div");
+        overviewScheduleTimeCell.textContent = time;
+        overviewScheduleTimes.appendChild(overviewScheduleTimeCell);
+    };
+    overviewSchedule.appendChild(overviewScheduleTimes)
+
+
+    
+    const colorIndex = new Map();
+    for (const subjectName of Object.keys(ownerSchedule)) colorIndex.set(subjectName, selectColor(colorIndex.size + 1));
+    
+    const overviewScheduleContent = document.createElement("div");
+    overviewScheduleContent.classList.add("overview-schedule-content");
+
+    for (let i = 0; i < 6; i++) {
+        const overviewScheduleColumn = document.createElement("div");
+
+        const overviewScheduleCurrent = [];
+        for (const [subjectName, subjectSchedules] of Object.entries(ownerSchedule)) {
+            if (!subjectSchedules[i + 1]) continue; // note that +1 here because the database includes [0] as sunday, while the overview schedule does not, with [0] as M. Hence, [0] of databas is ignored.
+            const subjectScheduleCurrent = subjectSchedules[i + 1];
+
+            class Schedule {
+                constructor(subjectName, startHour, startMinute, endHour, endMinute) {
+                    this.subjectName = subjectName;
+                    this.startHour = startHour;
+                    this.startMinute = startMinute;
+                    this.endHour = endHour;
+                    this.endMinute = endMinute;
+                }
+            };
+
+            let [startTime, endTime] = subjectScheduleCurrent.split("-");
+            let [startHour, startMinute] = startTime.split(":");
+            let [endHour, endMinute] = endTime.split(":");
+
+            overviewScheduleCurrent.push(new Schedule(subjectName, startHour, startMinute, endHour, endMinute))
+        };
+
+        for (let i = 0, j = 7; i < 12; i++, j++) {
+            const overviewScheduleCell = document.createElement("div");
+
+            for (const schedule of overviewScheduleCurrent) {
+                const startHourCheck = j - schedule.startHour;
+                const endHourCheck = schedule.endHour - j;
+
+                if (startHourCheck < 0 || endHourCheck < 0) continue;
+
+                const color = colorIndex.get(schedule.subjectName);
+                let points;
+
+                if (schedule.startHour == j) {
+                    console.log(schedule.startHour, j)
+                    switch (15 * Math.round(schedule.startMinute / 15)) {
+                        case 0: points = "0 0, 100 0, 100 100, 0 100"; break;
+                        case 15: points = "50 50, 100 0, 100 100, 0 100, 0 0"; break;
+                        case 30: points = "100 0, 100 100, 0 100"; break;
+                        case 45: points = "50 50, 100 100, 0 100"; break;
+                        case 60: points = "0 0, 0 0"; break;
+                    };
+                }
+                else if (schedule.endHour == j) {
+                    console.log(schedule.endHour, j)
+                    switch (15 * Math.round(schedule.endMinute / 15)) {
+                        case 0: points = "0 0, 0 0"; break;
+                        case 15: points = "50 50, 100 0, 0 0"; break;
+                        case 30: points = "0 0, 0 100, 100 0"; break;
+                        case 45: points = "50 50, 100 100, 100 0, 0 0, 0 100"; break;
+                        case 60: points = "0 0, 100 0, 100 100, 0 100"; break;
+                    }
+                }
+                else {
+                    points = "0 0, 100 0, 100 100, 0 100";
+                }
+                console.log(j, schedule, points)
+                overviewScheduleCell.appendChild(createOverviewSVG(points, color));
+            }
+
+            overviewScheduleColumn.appendChild(overviewScheduleCell);
+        };
+        overviewScheduleContent.appendChild(overviewScheduleColumn);
+    };
+    overviewSchedule.appendChild(overviewScheduleContent);
+    overview.appendChild(overviewSchedule);
+
+    console.log(overviewSchedule)
+
+    const overviewLegend = document.createElement("div");
+    overviewLegend.classList.add("overview-legend");
+
+    for (const [legendLabel, legendColor] of colorIndex.entries()) {
+        overviewLegend.appendChild(createOverviewLegend(legendLabel, legendColor));
+    };
+    overview.appendChild(overviewLegend)
+
+    // console.log(overviewScheduleContent.querySelectorAll(":scope > div"))
+    
+    return overview;
+}
+
+function createOverviewSVG(points, color) {
+    const overviewCellSVG = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    overviewCellSVG.setAttribute("width", "100%");
+    overviewCellSVG.setAttribute("height", "100%");
+    overviewCellSVG.setAttribute("viewBox", "0 0 100 100");
+    overviewCellSVG.setAttribute("preserveAspectRatio", "none");
+    overviewCellSVG.setAttributeNS("http://www.w3.org/2000/xmlns/", "xmlns:xlink", "http://www.w3.org/1999/xlink")
+
+    const overviewCellSVGPolygon = document.createElementNS("http://www.w3.org/2000/svg",   "polygon");
+    overviewCellSVGPolygon.setAttribute("points", points);
+    overviewCellSVGPolygon.setAttribute("fill", color);
+
+    overviewCellSVG.appendChild(overviewCellSVGPolygon);
+    return overviewCellSVG;
+}
+
+function createOverviewLegend(label, color) {
+    const overviewLegend = document.createElement("div");
+    
+
+
+    const overviewLegendColor = document.createElement("div");
+    overviewLegendColor.classList.add("overview-legend-color");
+    overviewLegendColor.style.backgroundColor = color;
+
+
+
+    const overviewLegendLabel = document.createElement("div");
+    overviewLegendLabel.classList.add("overview-legend-label");
+    overviewLegendLabel.textContent = label;
+
+
+    
+    overviewLegend.appendChild(overviewLegendColor);
+    overviewLegend.appendChild(overviewLegendLabel);
+
+    return overviewLegend;
 }
 
 function timeFormatter(hour, minute, twentyFourHourFormat) {
@@ -312,7 +502,11 @@ function timeFormatter(hour, minute, twentyFourHourFormat) {
     return `${hour}:${minute} ${format}`
 };
 
-// createMobileInterface("Kern")
+function selectColor(number) {
+    const hue = number * 137.508; // use golden angle approximation
+    return `hsl(${hue},75%,45%)`;
+};
+// MobileInterface("Kern")
 
 
 
