@@ -320,6 +320,9 @@ function createUpcomingInterface(owner, activeSchedule, ownerSchedule) {
     return scheduleUpcoming;
 }
 
+const colorIndex = new Map();
+createColorIndex();
+
 function createOverviewInterface(owner) {
     const ownerSchedule = scheds[owner]; // no need to check for incompatible owner since called from function that calls getSchedules()
 
@@ -360,9 +363,7 @@ function createOverviewInterface(owner) {
 
 
     
-    const colorIndex = new Map();
-    for (const subjectName of Object.keys(ownerSchedule)) colorIndex.set(subjectName, selectColor(colorIndex.size + 1));
-    
+ 
     const overviewScheduleContent = document.createElement("div");
     overviewScheduleContent.classList.add("overview-schedule-content");
 
@@ -404,7 +405,6 @@ function createOverviewInterface(owner) {
                 let points;
 
                 if (schedule.startHour == j) {
-                    console.log(schedule.startHour, j)
                     switch (15 * Math.round(schedule.startMinute / 15)) {
                         case 0: points = "0 0, 100 0, 100 100, 0 100"; break;
                         case 15: points = "50 50, 100 0, 100 100, 0 100, 0 0"; break;
@@ -414,7 +414,6 @@ function createOverviewInterface(owner) {
                     };
                 }
                 else if (schedule.endHour == j) {
-                    console.log(schedule.endHour, j)
                     switch (15 * Math.round(schedule.endMinute / 15)) {
                         case 0: points = "0 0, 0 0"; break;
                         case 15: points = "50 50, 100 0, 0 0"; break;
@@ -426,7 +425,6 @@ function createOverviewInterface(owner) {
                 else {
                     points = "0 0, 100 0, 100 100, 0 100";
                 }
-                console.log(j, schedule, points)
                 overviewScheduleCell.appendChild(createOverviewSVG(points, color));
             }
 
@@ -501,6 +499,18 @@ function timeFormatter(hour, minute, twentyFourHourFormat) {
     else if (hour > 12) {hour = hour - 12; format = "PM"};
     return `${hour}:${minute} ${format}`
 };
+
+function createColorIndex() {
+    const subjectArray = [];
+    for (const schedules of Object.values(scheds)) {
+        for (const subjectName of Object.keys(schedules)) {
+            subjectArray.push(subjectName);
+        }
+    }
+    
+    const uniqueSubjects = subjectArray.filter((val, index, array) => array.indexOf(val) === index);
+    for (const subjectName of uniqueSubjects) colorIndex.set(subjectName, selectColor(colorIndex.size + 1));
+}
 
 function selectColor(number) {
     const hue = number * 137.508; // use golden angle approximation
