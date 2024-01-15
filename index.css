@@ -227,22 +227,6 @@ body {
         width: 100%;
         position: absolute;
     }
-    /* .overview-schedule > div {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-        border: 1px dashed black;   
-    }
-    .overview-schedule > div > div {
-        height: 100%;
-        position: relative;
-        border: 1px dashed black;
-    }
-    .overview-schedule > div > div > svg {
-        height: 100%;
-        width: 100%;
-        position: absolute;
-    } */
     .overview-legend {
         display: flex;
         padding: 2% 5%;

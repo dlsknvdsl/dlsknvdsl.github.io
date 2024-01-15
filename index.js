@@ -440,8 +440,9 @@ function createOverviewInterface(owner) {
     const overviewLegend = document.createElement("div");
     overviewLegend.classList.add("overview-legend");
 
-    for (const [legendLabel, legendColor] of colorIndex.entries()) {
-        overviewLegend.appendChild(createOverviewLegend(legendLabel, legendColor));
+    for (const subjectName of Object.keys(ownerSchedule)) {
+        const color = colorIndex.get(subjectName);
+        overviewLegend.appendChild(createOverviewLegend(subjectName, color));
     };
     overview.appendChild(overviewLegend)
 
