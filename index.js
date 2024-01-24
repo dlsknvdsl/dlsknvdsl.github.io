@@ -1,6 +1,6 @@
 window.onload = () => {
     dateTime()
-    const userInterface = ["Kern", "Sean"];
+    const userInterface = ["Kern", "Sean", "Chester"];
     for (owner of userInterface) {
         createInterface(owner);
     }
