@@ -400,8 +400,8 @@ function createOverviewInterface(owner) {
                 const endHourCheck = schedule.endHour - j;
 
                 if (startHourCheck < 0 || endHourCheck < 0) continue;
-
-                const color = colorIndex.get(schedule.subjectName);
+                const [subjectCode, subjectName] = schedule.subjectName.split("=")
+                const color = colorIndex.get(subjectCode);
                 let points;
 
                 if (schedule.startHour == j) {
@@ -440,9 +440,10 @@ function createOverviewInterface(owner) {
     const overviewLegend = document.createElement("div");
     overviewLegend.classList.add("overview-legend");
 
-    for (const subjectName of Object.keys(ownerSchedule)) {
-        const color = colorIndex.get(subjectName);
-        overviewLegend.appendChild(createOverviewLegend(subjectName, color));
+    for (const subject of Object.keys(ownerSchedule)) {
+        const [subjectCode, subjectName] = subject.split("=");
+        const color = colorIndex.get(subjectCode);
+        overviewLegend.appendChild(createOverviewLegend(subjectCode, color));
     };
     overview.appendChild(overviewLegend)
 
@@ -504,8 +505,9 @@ function timeFormatter(hour, minute, twentyFourHourFormat) {
 function createColorIndex() {
     const subjectArray = [];
     for (const schedules of Object.values(scheds)) {
-        for (const subjectName of Object.keys(schedules)) {
-            subjectArray.push(subjectName);
+        for (const subject of Object.keys(schedules)) {
+            const [subjectCode, subjectName] = subject.split("=")
+            subjectArray.push(subjectCode);
         }
     }
     
