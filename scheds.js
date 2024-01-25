@@ -22,12 +22,23 @@ const scheds =
     },
     "Chester": {
         "MATH111": [null, null, "7:00-8:30", "14:00-15:30"],
-        "GEd109": [null, null, "8:30-10:00", null, "8:30-10:00"],
+        "GEd109=Science, Technology, and Society": [null, null, "8:30-10:00", null, "8:30-10:00"],
         "GEd105": [null, null, "10:00-11:30", null, "10:00-11:30"],
         "Fili102": [null, null, "11:30-13:00"],
         "CS131": [null, null, null, "7:00-10:00", null, "9:00-11:00"],
         "CS111": [null, null, null, "10:00-13:00", null, "7:00-9:00"],
         "PATHFit2": [null, null, null, null, "14:00-16:00"],
         "NSTP": [null, null, null, null, null, null, "14:00-17:00"]
+    },
+    "Louzel": {
+        "GEd104": [null, "13:00-16:00"],
+        "ENGG402": [null, null, "7:00-8:30", null, "7:00-8:30"],
+        "SCI403": [null, null, "13:00-15:00", null, "13:00-15:00", "9:00-11:00"],
+        "MATH402": [null, null, "15:00-17:00", null, "12:00-13:00"],
+        "PATHFit2": [null, null, null, "7:00-9:00"],
+        "GEd108": [null, null, null, "13:30-15:00", null, "13:00-14:30"],
+        "GEd109": [null, null, null, null, "15:00-16:30", "7:00-8:30"],
+        "CpE401": [null, null, null, null, "16:30-18:00", "14:30-16:00"],
+        "NSTP121CW": [null, null, null, null, null, null, "7:00-10:00"]
     }
 };
