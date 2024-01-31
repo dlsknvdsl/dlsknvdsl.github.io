@@ -1,6 +1,6 @@
 window.onload = () => {
     dateTime()
-    const userInterface = ["Kern", "Sean", "Chester", "Louzel"];
+    const userInterface = ["Kern", "Sean", "Chester", "Louzel", "Atom", "Rolan", "Shek"];
     for (owner of userInterface) {
         createInterface(owner);
     }
@@ -107,13 +107,17 @@ function scheduleLookAhead(owner, subjectsNum, startDateTime) {
             };
         };
 
-        scheduleArray.forEach(s => {
-            let [subjectCode, subjectTitle] = s[1].split("=");
-            let [startTime, endTime] = s[0].split("-");
-            let [startHour, startMinute] = startTime.split(":");
-            let [endHour, endMinute] = endTime.split(":");
-
-            iterationOutput.push(new Schedule(startHour, startMinute, endHour, endMinute, subjectCode, subjectTitle));
+        scheduleArray.forEach(subject => {
+            const subjectCurrentTimestamps = subject[0].split(",");
+            
+            for (const timestamp of subjectCurrentTimestamps) { // IMPORTANT: parser also present in overview
+                let [subjectCode, subjectTitle] = subject[1].split("=");
+                let [startTime, endTime] = timestamp.split("-");
+                let [startHour, startMinute] = startTime.split(":");
+                let [endHour, endMinute] = endTime.split(":");
+    
+                iterationOutput.push(new Schedule(startHour, startMinute, endHour, endMinute, subjectCode, subjectTitle));    
+            }
         });
         iterationOutput.sort((a, b) => (a.startHour + (a.startMinute / 60)) - (b.startHour + (b.startMinute / 60)))
 
@@ -163,7 +167,6 @@ function scheduleLookAhead(owner, subjectsNum, startDateTime) {
     }
     return output;
 }
-console.log(scheduleLookAhead("Kern", 5))
 
 // html dom functions
 function toggleButton(element, ids, count) {
@@ -215,6 +218,7 @@ function createInterface(owner) {
     // scheduleStatus.textContent = activeScheduleStatus;
 
     scheduleCode.classList.add("schedule-subject-code-active");
+    scheduleCode.style.color = activeSubjectCode == "Vacant" ? "#267513":"#941214";
     scheduleCode.textContent = activeSubjectCode;
     
     scheduleToggle.classList.add("schedule-toggle");
@@ -385,11 +389,17 @@ function createOverviewInterface(owner) {
                 }
             };
 
-            let [startTime, endTime] = subjectScheduleCurrent.split("-");
-            let [startHour, startMinute] = startTime.split(":");
-            let [endHour, endMinute] = endTime.split(":");
+            const subjectCurrentTimestamps = subjectScheduleCurrent.split(",");
 
-            overviewScheduleCurrent.push(new Schedule(subjectName, startHour, startMinute, endHour, endMinute))
+            for (const timestamp of subjectCurrentTimestamps) {
+
+                let [startTime, endTime] = timestamp.split("-");
+                let [startHour, startMinute] = startTime.split(":");
+                let [endHour, endMinute] = endTime.split(":");
+    
+                overviewScheduleCurrent.push(new Schedule(subjectName, startHour, startMinute, endHour, endMinute))    
+            
+            }
         };
 
         for (let i = 0, j = 7; i < 12; i++, j++) {
@@ -403,6 +413,7 @@ function createOverviewInterface(owner) {
                 const [subjectCode, subjectName] = schedule.subjectName.split("=")
                 const color = colorIndex.get(subjectCode);
                 let points;
+                
 
                 if (schedule.startHour == j) {
                     switch (15 * Math.round(schedule.startMinute / 15)) {
@@ -410,12 +421,12 @@ function createOverviewInterface(owner) {
                         case 15: points = "50 50, 100 0, 100 100, 0 100, 0 0"; break;
                         case 30: points = "100 0, 100 100, 0 100"; break;
                         case 45: points = "50 50, 100 100, 0 100"; break;
-                        case 60: points = "0 0, 0 0"; break;
+                        case 60: continue;
                     };
                 }
                 else if (schedule.endHour == j) {
                     switch (15 * Math.round(schedule.endMinute / 15)) {
-                        case 0: points = "0 0, 0 0"; break;
+                        case 0: continue;
                         case 15: points = "50 50, 100 0, 0 0"; break;
                         case 30: points = "0 0, 0 100, 100 0"; break;
                         case 45: points = "50 50, 100 100, 100 0, 0 0, 0 100"; break;
