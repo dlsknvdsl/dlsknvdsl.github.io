@@ -66,7 +66,7 @@ const scheds =
         "AMT1209L": [null, null, null, null, null, "15:00-18:00"],
         "NTP200": [null, null, null, null, null, null, "9:00-12:00"]
     },
-    "Shek": {
+    "Shekinah": {
         "PHYS72": [null, null, "10:15-11:15", "10:00-11:30", null, "10:00-11:30"],
         "MATH22": [null, null, "11:45-12:45", "11:45-12:45", "11:45-12:45", "11:45-12:45"],
         "EEE123": [null, null, "13:00-14:30", null, "13:00-14:30"],
