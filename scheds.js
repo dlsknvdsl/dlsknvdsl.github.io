@@ -74,5 +74,24 @@ const scheds =
         "FIL40": [null, null, null, "13:00-14:30", null, "13:00-14:30"],
         "EEE128": [null, null, null, "16:00-19:00"],
         "PE2": [null, null, null, null, null, "7:00-9:00"]
+    },
+    "Kowin": {
+        "SS032": [null, "8:15-9:30", null, "8:15-9:30", null, "8:15-9:30"],
+        "MATH130": [null, "9:30-10:45", null, "9:30-10:45", null, "9:30-10:45"],
+        "IT130": [null, "10:45-12:00", null, "10:45-12:00", null, "10:45-12:00"],
+        "IT101-2": [null, "12:00-14:30"],
+        "PE042": [null , null, "7:00-9:30"],
+        "IT101-2L": [null, null, "10:45-14:30"],
+        "ENG029": [null, null, null, "12:00-13:15", null, "12:00-13:15"]
+    },
+    "Jay": {
+        "GED0011": [null, null, "9:00-10:50", null, null, "9:00-10:50"],
+        "GED0009": [null, null, "15:00-16:50", null, null, "15:00-16:50"],
+        "CCS0001LL-LEC": [null, null, "17:00-19:40"],
+        "CCS0001LL-LAB": [null, null, null, "7:00-9:50"],
+        "CCS0001LL-LAB": [null, null, null, "10:00-12:50"],
+        "CCS0003LL-LEC": [null, null, null, null, null, "11:00-13:40"],
+        "GED0006": [null, null, null, null, null, null, "7:00-9:40"],
+        "GED0004A": [null, null, null, null, null, null, "13:00-17:00"]
     }
 };

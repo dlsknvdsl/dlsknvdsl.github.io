@@ -1,6 +1,6 @@
 window.onload = () => {
     dateTime()
-    const userInterface = ["Kern", "Sean", "Chester", "Louzel", "Atom", "Rolan", "Shekinah"];
+    const userInterface = ["Kern", "Sean", "Chester", "Louzel", "Atom", "Rolan", "Shekinah", "Kowin", "Jay"];
     for (owner of userInterface) {
         createInterface(owner);
     }
@@ -107,6 +107,17 @@ function scheduleLookAhead(owner, subjectsNum, startDateTime) {
             };
         };
 
+        class AltSchedule {
+            constructor(startTime, endTime, subjectCode, subjectTitle) {
+                this.startTime = startTime;
+                this.endTime = endTime;
+                this.subjectCode = subjectCode;
+                this.subjectTitle = subjectTitle;
+            }
+        }
+
+
+
         scheduleArray.forEach(subject => {
             const subjectCurrentTimestamps = subject[0].split(",");
             
@@ -117,8 +128,22 @@ function scheduleLookAhead(owner, subjectsNum, startDateTime) {
                 let [endHour, endMinute] = endTime.split(":");
     
                 iterationOutput.push(new Schedule(startHour, startMinute, endHour, endMinute, subjectCode, subjectTitle));    
+
+                const start = null;
+                // console.log(now().toISOString().slice(0, 11), timePicker(startHour, startMinute, 0))
+
+                // function timePicker(h, m, s) {
+                //     const hour = ("0" + h).slice(-2);
+                //     const minute = ("0" + m).slice(-2);
+                //     const second = ("0" + s).slice(-2);
+
+                //     return hour + ":" + minute + ":" + second;
+                // }
             }
         });
+
+
+
         iterationOutput.sort((a, b) => (a.startHour + (a.startMinute / 60)) - (b.startHour + (b.startMinute / 60)))
 
         for (let i = 0, j = 0; i < iterationOutput.length - 1; i++) {
