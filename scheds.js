@@ -16,7 +16,7 @@ const scheds =
         "EE108-1L": [null, null, "7:00-10:45"],
         "EENV102-1": [null, null, "15:45-17:00", null, "15:45-17:00"],
         "ECE104-1": [null, null, "18:15-20:45"],
-        "ME103L": [null, null, "17:00-20:45"],
+        "ME103L": [null, null, null, "17:00-20:45"],
         "EE108-1": [null, null, null, null, "12:00-14:30"],
         "ECE104-1L": [null, null, null, null, null, null, "14:30-17:00"]
     },
@@ -50,6 +50,7 @@ const scheds =
         "EE51L": [null, null, "16:00-19:00"],
         "SAS1": [null, null, null, "7:00-8:30", null, "7:00-8:30"],
         "ENSC26": [null, null, null, "13:30-14:30", null, "13:30-14:30"],
+        "ENSC26L": [null, null, null, null, "13:00-16:00"],
         "MATH10": [null, null, null, "14:30-16:00", null, "14:30-16:00"]
     },
     "Rolan": {
