@@ -249,3 +249,8 @@ body {
     .overview-legend-label {
         overflow: hidden;
     }
+
+
+    .example {
+        background-image: url("C:\Users\Joseph\Downloads\mcl logo.png") repeat;
+    }
