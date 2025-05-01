@@ -28,7 +28,7 @@ const scheds =
         "IT221": [null, null, "16:00-19:00", null, "16:00-18:00"],
         "MATH408": [null, null, null, "10:00-11:30", null, "9:00-10:30"],
         "GEd106": [null, null, null, "11:30-13:00", null, "10:30-12:00"],
-        "PATHFit4": [null, null, null, null, null, null, "13:00-15:00"]
+        "PATHFit4": [null, null, null, null, null, "13:00-15:00"]
     },
     "Louzel": {
         "CE011": [null, "10:45-12:00", null, "10:45-12:00"],
@@ -71,13 +71,23 @@ const scheds =
         "AMT2222": [null, null, null, null, null, "13:00-15:00"]
     },
     "Shekinah": {
-        "PHYS72": [null, null, "10:15-11:15", "10:00-11:30", null, "10:00-11:30"],
-        "MATH22": [null, null, "11:45-12:45", "11:45-12:45", "11:45-12:45", "11:45-12:45"],
-        "EEE123": [null, null, "13:00-14:30", null, "13:00-14:30"],
-        "EEE121": [null, null, "16:15-19:15", null, "8:30-11:30,16:15-17:15"],
-        "FIL40": [null, null, null, "13:00-14:30", null, "13:00-14:30"],
-        "EEE128": [null, null, null, "16:00-19:00"],
-        "PE2": [null, null, null, null, null, "7:00-9:00"]
+        "CWTS2": [null, "9:00-12:00"],
+        "ES101": [null, null, "7:00-8:30", "10:00-11:30", "7:00-8:30", "10:00-11:30"],
+        "EEE148": [null, null, "10:00-13:00"],
+        "EEE141": [null, null, "13:00-14:30", null, "13:00-14:30"],
+        "EEE147": [null, null, "14:30-16:00", null, "14:30-16:00"],
+        "EEE145": [null, null, null, "8:30-10:00", null, "8:30-10:00"],
+        "EEE143": [null, null, null, "16:00-17:30", null, "16:00-17:30"]
+    },
+    "Sean": {
+        "VE023": [null, "8:15-9:30"],
+        "ME123-1": [null, "9:30-10:45", null, "9:30-10:45", null, "9:30-10:45"],
+        "ENG030": [null, "13:15-14:30", null, "13:15-14:30"],
+        "MATH052": [null, "15:45-17:00", null, "15:45-17:00", null, "15:45-17:00"],
+        "CE140P-1": [null, null, "8:15-10:45", null, "8:15-10:45"],
+        "MEC101": [null, null, "13:15-14:30", null, "13:15-14:30", null, "13:15-14:30"],
+        "CE103-1": [null, null, null, null, null, null, "7:00-10:45"],
+        "ECE120L": [null, null, null, null, null, null, "14:30-17:00"],
     },
     "Kowin": {
         "SS032": [null, "8:15-9:30", null, "8:15-9:30", null, "8:15-9:30"],
