@@ -69,7 +69,7 @@ const scheds =
         "STS": [null, "11:00-12:30", null, null, "11:00-12:30"],
         "SELF": [null, "12:30-14:00", null, null, "12:30-14:00"],
         "CALC": [null, "15:00-17:00", null, null, "15:00-17:00"],
-        "FCL500": [null, "17:00-19:00", null, null, "17:00-19:00"],
+        "FCL500": [null, "17:00-19:00"],
         "PHYS": [null, null, "7:00-8:30", null, null, "7:00-8:30"],
         "CPL": [null, null, "8:30-9:30", null, null, "8:30-9:30"],
         "MPC": [null, null, "15:00-17:00", null, null, "15:00-17:00"],
