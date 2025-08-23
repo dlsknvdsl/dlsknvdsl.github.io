@@ -122,5 +122,14 @@ const scheds =
         "CCS0003LL-LEC": [null, null, null, null, null, "11:00-13:40"],
         "GED0006": [null, null, null, null, null, null, "7:00-9:40"],
         "GED0004A": [null, null, null, null, null, null, "13:00-17:00"]
+    },
+    "Tonio": {
+        "GA-MEART": [null, "9:15-10:45", null, null, "11:00-12:30"],
+        "CS-ADPRG": [null, "16:15-17:45", null, null, "16:15-17:45"],
+        "GE-ETHIC": [null, null, "7:30-9:00", null, null, "7:30-9:00"],
+        "ST-ADVDB": [null, null, "9:15-10:45", null, null, "9:15-10:45"],
+        "CS-SWENG": [null, null, "11:00-12:30", null, null, "12:45-14:15"],
+        "PE-DFOUR": [null, null, null, "8:00-10:00"],
+        "LC-LSTWO": [null, null, null, null, null, null, "10:00-12:00"]
     }
 };
