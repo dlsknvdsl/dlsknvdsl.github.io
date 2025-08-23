@@ -1,6 +1,6 @@
 window.onload = () => {
     dateTime()
-    const userInterface = ["장식 꼬리", "Ace", "Louzel", "Shek", "Franco", "Rolan", "Marga", "Joseph"];
+    const userInterface = ["장식 꼬리", "Ace", "Sean", "Louzel", "Shek", "Franco", "Rolan", "Marga", "Joseph"];
     for (owner of userInterface) {
         createInterface(owner);
     }
@@ -382,7 +382,7 @@ function createOverviewInterface(owner) {
     const overviewScheduleTimes = document.createElement("div");
     overviewScheduleTimes.classList.add("overview-schedule-times");
 
-    const overviewScheduleTimesContent = ["7-8", "8-9", "9-10", "10-11", "11-12", "12-1", "1-2", "2-3", "3-4", "4-5", "5-6", "6-7"]
+    const overviewScheduleTimesContent = ["7-8", "8-9", "9-10", "10-11", "11-12", "12-1", "1-2", "2-3", "3-4", "4-5", "5-6", "6-7", "7-8", "8-9"]
     for (const time of overviewScheduleTimesContent) {
         const overviewScheduleTimeCell = document.createElement("div");
         overviewScheduleTimeCell.textContent = time;
@@ -427,7 +427,7 @@ function createOverviewInterface(owner) {
             }
         };
 
-        for (let i = 0, j = 7; i < 12; i++, j++) {
+        for (let i = 0, j = 7; i < 14; i++, j++) {
             const overviewScheduleCell = document.createElement("div");
 
             for (const schedule of overviewScheduleCurrent) {
