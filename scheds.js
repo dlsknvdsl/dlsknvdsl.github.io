@@ -21,14 +21,13 @@ const scheds =
         "ME130L": [null, null, null, null, null, null, "7:00-10:45"]
     },
     "Chester": {
-        "IT223": [null, "7:00-10:00", null, null, null, "7:00-9:00"],
-        "GEd101=Understanding the Self": [null, "11:30-13:00", null, "11:30-13:00"],
-        "ES101": [null, null, "10:00-13:00", "8:00-10:00"],
-        "IT222": [null, null, "14:00-16:00", null, "13:00-16:00"],
-        "IT221": [null, null, "16:00-19:00", null, "16:00-18:00"],
-        "MATH408": [null, null, null, "10:00-11:30", null, "9:00-10:30"],
-        "GEd106": [null, null, null, "11:30-13:00", null, "10:30-12:00"],
-        "PATHFit4": [null, null, null, null, null, "13:00-15:00"]
+        "BAT401": [null, "7:00-10:00", null, null, null, "12:00-14:00"],
+        "GEd107": [null, "11:30-13:00", "14:00-15:30"],
+        "IT311": [null, "13:00-16:00", null, null, null, "9:00-11:00"],
+        "IT312": [null, null, "10:00-13:00", null, null, "7:00-9:00"],
+        "IT313": [null, null, "15:30-17:30", "13:00-16:00"],
+        "BAT402": [null, null, null, "16:00-19:00", null, "14:00-16:00"],
+        "IT314": [null, null, null, null, null, null, "13:00-18:00"]
     },
     "Louzel": {
         "MEC103": [null, "13:15-14:30", null, "13:15-14:30", null, "13:15-14:30"],
