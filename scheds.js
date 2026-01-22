@@ -40,28 +40,29 @@ const scheds =
         "CE151-1": [null, null, null, null, null, null, "12:00-15:45"]
     },
     "Joseph": {
-        "EE61L": [null, "7:00-10:00"],
-        "EE65L": [null, "10:00-13:00"],
-        "EE60L": [null, "13:00-16:00"],
-        "COMM10": [null, null, "8:30-10:00", null, "8:30-10:00"],
-        "EE62": [null, null, "10:00-11:30", null, "10:00-11:30"],
-        "EE61": [null, null, "11:30-13:00", null, "11:30-13:00"],
-        "NSTP2": [null, null, "13:00-16:00"],
-        "EE65": [null, null, null, "10:00-11:30", null, "10:00-11:30"],
-        "EE66": [null, null, null, "11:30-13:00", null, "11:30-13:00"],
-        "EE60": [null, null, null, "15:00-16:00", null, "15:00-16:00"]
+        "EE75": [null, null, null, "11:30-13:00", null, "11:30-13:00"],
+        "EE75L": [null, "16:00-19:00"],
+        "FPPS183": [null, null, "8:00-10:00"],
+        "FPPS183L": [null, null, "10:00-13:00"],
+        "ENG 10": [null, null, "13:00-14:30", null, "13:00-14:30"],
+        "EE71": [null, null, "14:30-16:00", null, "14:30-16:00"],
+        "EE70": [null, null, "17:30-19:00", null, "17:30-19:00"],
+        "EE70L": [null, null, null, "13:00-16:00"],
+        "STS1": [null, null, null, "8:30-10:00", null, "8:30-10:00"],
+        "HK12": [null, null, null, null, "7:00-9:00"],
+        "EE79": [null, null, null, null, null, "13:00-14:00"]
     },
     "Marga": {
-        "NSTP2": [null, "9:00-12:00"],
-        "FBS101L": [null, "13:00-16:00"],
-        "SFI140": [null, null, "7:00-8:00", null, "7:00-8:00"],
-        "COMM10": [null, null, "8:30-10:00", null, "8:30-10:00"],
-        "SFI140L": [null, null, "10:00-13:00"],
-        "FBS45": [null, null, "16:00-17:30", null, "16:00-17:30"],
-        "FPPS11": [null, null, null, "7:00-8:00"],
-        "FBS101": [null, null, null, "10:00-11:00", null, "10:00-11:00"],
-        "FPPS11L": [null, null, null, "16:00-19:00", null, "16:00-19:00"],
-        "FBS45L": [null, null, null, null, "13:00-16:00"]
+        "FBS130": [null, null, "8:00-9:00", null, "8:00-9:00"],
+        "FBS130L": [null, null, "13:00-16:00"],
+        "SFFG113": [null, null, "10:00-11:30", null, "10:00-11:30"],
+        "FPPS127": [null, null, "16:00-17:30", null, "16:00-17:30"],
+        "FPPS127L": [null, null, null, null, "13:00-16:00"],
+        "STS1": [null, null, null, "8:30-10:00", null, "8:30-10:00"],
+        "FBS172": [null, null, null, "11:00-12:00", null, "11:00-12:00"],
+        "FBS172L": [null, null, null, null, null, "13:00-16:00"],
+        "SFI142": [null, null, null, "16:00-17:00", null, "16:00-17:00"],
+        "SFI142L": [null, null, null, "13:00-16:00"]
     },
     "Rolan": {
         "STS": [null, "11:00-12:30", null, null, "11:00-12:30"],
@@ -76,22 +77,22 @@ const scheds =
         "PHYSL": [null, null, null, null, null, "10:00-13:00"]
     },
     "Shek": {
-        "EEE157": [null, null, "8:30-10:00", null, "8:30-10:00"],
-        "PHYS73": [null, null, "10:00-11:30", "10:15-11:15", "10:00-11:30"],
-        "EEE158": [null, null, "11:30-14:30"],
-        "MUC10": [null, null, "14:30-16:00", null, "14:30-16:00"],
-        "EEE151": [null, null, null, "8:30-10:00", null, "8:30-10:00"],
-        "EEE155": [null, null, null, "14:30-16:00", null, "14:30-16:00"],
-        "EEE153": [null, null, null, "16:00-17:30", null, "16:00-17:30"]
+        "ECE164": [null, null, "10:00-13:00"],
+        "ECE161": [null, null, "13:00-14:30", null, "13:00-14:30"],
+        "ECE163": [null, null, "14:30-16:00", null, "14:30-16:00"],
+        "ECE197": [null, null, "17:30-19:00", null, "17:30-19:00", "8:30-11:30"],
+        "MuL8": [null, null, null, "11:30-13:00", null, "11:30-13:00"],
+        "STS1": [null, null, null, "14:30-16:00", null, "14:30-16:00"],
+        "EEE192": [null, null, null, null, "10:00-13:00"],
     },
     "Franco": {
-        "ITEL201": [null, "8:00-11:00", null, "8:00-10:00"],
-        "PATHFIT3": [null, "15:00-17:00"],
-        "ITEC204": [null, null, "11:00-14:00", "10:00-12:00"],
-        "ITEC205": [null, null, "15:00-17:00", null, "11:00-14:00"],
-        "ITEP203": [null, null, null, "15:00-17:00"],
-        "ITEL202": [null, null, null, null, "8:00-11:00,15:00-17:00"],
-        "SOSLIT": [null, null, null, null, null, "13:00-16:00"]
+        "RLT002": [null, "15:00-17:00"],
+        "IT231": [null, null, "8:00-12:00,13:00-15:00"],
+        "DBC100": [null, null, "15:00-17:00"],
+        "IT411": [null, null, null, null, "8:00-12:00,13:00-15:00"],
+        "IT201": [null, null, null, null, null, "8:00-10:00", "8:00-12:00"],
+        "RLT+IT261": [null, null, null, null, null, "13:00-15:00"],
+        "IT261": [null, null, null, null, null, null, "13:00-17:00"]
     },
     "Sean": {
         "MATH000P": [null, "9:30-10:45", null, "9:30-10:45", null, "9:30-10:45"],
