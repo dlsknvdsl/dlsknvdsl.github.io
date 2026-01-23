@@ -65,16 +65,15 @@ const scheds =
         "SFI142L": [null, null, null, "13:00-16:00"]
     },
     "Rolan": {
-        "STS": [null, "11:00-12:30", null, null, "11:00-12:30"],
-        "SELF": [null, "12:30-14:00", null, null, "12:30-14:00"],
-        "CALC": [null, "15:00-17:00", null, null, "15:00-17:00"],
-        "FCL500": [null, "17:00-19:00"],
-        "PHYS": [null, null, "7:00-8:30", null, null, "7:00-8:30"],
-        "CPL": [null, null, "8:30-9:30", null, null, "8:30-9:30"],
-        "MPC": [null, null, "15:00-17:00", null, null, "15:00-17:00"],
-        "MOM": [null, null, "17:00-18:00", null, null, "17:00-18:00"],
-        "CPLL": [null, null, null, null, "7:00-10:00"],
-        "PHYSL": [null, null, null, null, null, "10:00-13:00"]
+        "AERO": [null, "7:00-9:30", null, null, "7:00-9:30"],
+        "ETHICS": [null, "9:30-11:00", null, null, "9:30-11:00"],
+        "AVPHYS": [null, "12:00-13:30", null, null, "12:00-13:30"],
+        "ICALC": [null, "14:00-16:00", null, null, "14:00-16:00"],
+        "RIZAL": [null, "16:00-17:30", null, null, "16:00-17:30"],
+        "FCL600": [null, "18:00-20:00", null, null, "18:00-20:00"],
+        "THERMO": [null, null, "7:00-8:30", null, null, "7:00-8:30"],
+        "SRB": [null, null, "8:30-10:00", null, null, "8:30-10:00"],
+        "AVPHYSL": [null, null, "11:00-14:00"]
     },
     "Shek": {
         "ECE164": [null, null, "10:00-13:00"],
@@ -95,13 +94,13 @@ const scheds =
         "IT261": [null, null, null, null, null, null, "13:00-17:00"]
     },
     "Sean": {
-        "MATH000P": [null, "9:30-10:45", null, "9:30-10:45", null, "9:30-10:45"],
-        "CEEL133-1": [null, "12:00-13:15", null, "12:00-13:15", null, "12:00-13:15"],
-        "MEC103": [null, "13:15-14:30", null, "13:15-14:30", null, "13:15-14:30"],
-        "IE101": [null, "17:00-19:30", null, null, null, "17:00-18:15"],
-        "MEC102": [null, null, "12:00-13:15", null, "12:00-13:15"],
-        "CE105": [null, null, null, null, "19:30-20:45", null, "7:00-9:30"],
-        "EECO101": [null, null, null, null, null, "8:15-9:30", "13:15-15:45"]
+        "MATH055": [null, "8:15-9:30", null, "8:15-9:30", null, "8:15-9:30"],
+        "MATH035": [null, "10:45-12:00", null, "10:45-12:00", null, "10:45-12:00"],
+        "MEC102": [null, "13:15-14:30", null, null, null, "13:15-14:30"],
+        "SS041": [null, "14:30-15:45", null, "14:30-15:45", null, "14:30-15:45"],
+        "CE131P-1": [null, "15:45-17:00", "15:45-17:00", null, "15:45-17:00", "15:45-17:00", "15:45-18:15"],
+        "CE151-1L": [null, null, null, null, null, null, "7:00-10:45"],
+        "CE151-1": [null, null, null, null, null, null, "12:00-15:45"] 
     },
     "Kowin": {
         "SS032": [null, "8:15-9:30", null, "8:15-9:30", null, "8:15-9:30"],
