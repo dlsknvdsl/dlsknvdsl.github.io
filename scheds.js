@@ -44,13 +44,12 @@ const scheds =
         "EE75L": [null, "16:00-19:00"],
         "FPPS183": [null, null, "8:00-10:00"],
         "FPPS183L": [null, null, "10:00-13:00"],
-        "ENG 10": [null, null, "13:00-14:30", null, "13:00-14:30"],
         "EE71": [null, null, "14:30-16:00", null, "14:30-16:00"],
         "EE70": [null, null, "17:30-19:00", null, "17:30-19:00"],
         "EE70L": [null, null, null, "13:00-16:00"],
         "STS1": [null, null, null, "8:30-10:00", null, "8:30-10:00"],
         "HK12": [null, null, null, null, "7:00-9:00"],
-        "EE79": [null, null, null, null, null, "13:00-14:00"]
+        "EE79": [null, null, null, null, null, "15:00-16:00"]
     },
     "Marga": {
         "FBS130": [null, null, "8:00-9:00", null, "8:00-9:00"],
