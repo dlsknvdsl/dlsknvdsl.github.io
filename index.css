@@ -24,6 +24,23 @@ body {
     font-size: calc(6vw + 16px);
 }
 
+#Azelt {
+    animation: boss 3s linear infinite;
+}
+
+@keyframes boss {
+    0% {
+        box-shadow:
+            0 0 15px rgba(255, 0, 0, 0.4),
+            0 0 20px rgba(255, 0, 0, 0.3);
+    }
+    50% {
+        box-shadow:
+            0 0 25px rgba(255, 0, 0, 0.9),
+            0 0 50px rgba(255, 0, 0, 0.7);
+    }
+}
+
 @media screen and (max-width: 799.99px) {
     .content {
         background-color: chocolate;

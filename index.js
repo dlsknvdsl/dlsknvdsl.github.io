@@ -1,6 +1,6 @@
 window.onload = () => {
     dateTime()
-    const userInterface = ["장식 꼬리", "Ace", "Sean", "Franco", "Rolan", "Louzel", "Shek", "Marga", "Joseph"];
+    const userInterface = ["장식 꼬리", "Ace", "Sean", "Franco", "Rolan", "Louzel", "Shek", "Marga", "Joseph", "Azelt"];
     for (owner of userInterface) {
         createInterface(owner);
     }
@@ -556,6 +556,3 @@ function selectColor(number) {
     return `hsl(${hue},75%,45%)`;
 };
 // MobileInterface("Kern")
-
-
-
