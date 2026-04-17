@@ -29,13 +29,16 @@ const scheds =
         "BAT404": [null, null, null, null, "13:00-16:00", "7:00-9:00"]
     },
     "Louzel": {
-        "CE101-1P": [null, "7:00-10:45,14:30-15:45", null, "14:30-15:45"],
-        "CE131P-1": [null, "15:45-17:00", "15:45-17:00", null, "15:45-17:00", "15:45-17:00", "15:45-18:15"],
-        "EMGT101-1": [null, "18:15-19:30", null, "18:15-19:30"],
-        "MEC103-1": [null, null, "13:15-14:30"],
-        "TEC101": [null, null, null, "12:00-14:30", null, "12:00-13:15"],
-        "CE151-1L": [null, null, null, null, null, null, "7:00-10:45"],
-        "CE151-1": [null, null, null, null, null, null, "12:00-15:45"]
+        "HUM080": [null, "8:15-9:30", null, "8:15-9:30", null, "8:15-9:30"],
+        "CE140P-1": [null, "14:30-17:00", null, null, null, null, "14:30-17:00"],
+        "CE123-1": [null, "18:15-19:30", null, null, "18:15-19:30", "14:30-17:00"],
+        "CE200-3": [null, null, "7:00-8:15"],
+        "CE135": [null, null, "15:45-17:00,18:15-19:30", null, "15:45-17:00"],
+        "CE200-3L": [null, null, null, "7:00-8:15", "7:00-8:15"],
+        "CE141L": [null, null, null, "13:15-17:00"],
+        "CE123-1L": [null, null, null, null, "10:45-14:30"],
+        "VE033": [null, null, null, null, "17:00-18:15"],
+        "CE141": [null, null, null, null, null, null, "17:00-19:30"]
     },
     "Joseph": {
         "EE75": [null, null, null, "11:30-13:00", null, "11:30-13:00"],
